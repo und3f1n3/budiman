@@ -20,15 +20,6 @@ langsung aja comot,.. ketik perintah ini di termux
        $ cd budiman
 
        $ python2 pirmansx.py
-
-# cara menggunakan nya
- pilih perintah nomer 3 atau ID dari File ,.. pasti tau dong yah
- 
- kemudian pada perintah ketik aja
- 
-        masukan alamat file :testbeta.txt
-   
- kamu ketik aja testbeta.txt ,... intinya jangan diganti-ganti ketik aja testbeta.txt
  
  sekian .,cobain ,.. kalo ada perintah yang error harap lapor
  
