@@ -33,7 +33,12 @@ langsung aja comot,.. ketik perintah ini di termux step by step
  sekian .,cobain ,.. kalo ada perintah yang error harap lapor
  
  back up by = bud1man
+ # info menggunakan ID dari file
+ jika diminta masukan opsi masukan ID file ketik aja, 
  
+         idfile.txt
+ semua USERNAME/ID yang agan berikan sudah saya masukin ke situ gan
+ intinya jangan diubah, ketik aja idfile.txt
  # english info installation
  
  this tool can hack you list friend, list group. just log in and you can hack with you favorite
