@@ -6,6 +6,8 @@ milik PIRMANSX,... di back up kembali, gunakan dengan bijak
  
        $ rm -rf budiman
 langsung aja comot,.. ketik perintah ini di termux step by step
+
+
 1 _______________
    
       $ pkg install python2
