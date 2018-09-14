@@ -5,7 +5,7 @@ milik PIRMANSX,... di back up kembali, gunakan dengan bijak
  bagi yang pernah sebelumnya menggunakan tools budiman ini harap un-install agar tidak terjadi syntax error, caranya
  
        $ rm -rf budiman
-langsung aja comot,.. ketik perintah ini di termux step by step
+langsung aja comot,.. ketik perintah ini di termux agan satu per satu
 
 
 1 _______________
