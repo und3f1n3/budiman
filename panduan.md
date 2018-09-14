@@ -5,26 +5,33 @@ milik PIRMANSX,... di back up kembali, gunakan dengan bijak
  bagi yang pernah sebelumnya menggunakan tools budiman ini harap un-install agar tidak terjadi syntax error, caranya
  
        $ rm -rf budiman
-langsung aja comot,.. ketik perintah ini di termux
-
-       $ pkg install python2
+langsung aja comot,.. ketik perintah ini di termux step by step
+1 _______________
+   
+      $ pkg install python2
+2 _______________
 
        $ pkg install git
+3 _______________
 
        $ pip2 install --upgrade pip
+4_______________
 
        $ pip2 install mechanize
+5_______________
  
        $ git clone http://github.com/und3f1n3/budiman
+6_______________
 
        $ cd budiman
+7_______________
 
        $ python2 pirmansx.py
  
  sekian .,cobain ,.. kalo ada perintah yang error harap lapor
  
  back up by = bud1man
- not for sale
+ 
  # english info installation
  
  this tool can hack you list friend, list group. just log in and you can hack with you favorite
