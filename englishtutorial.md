@@ -33,13 +33,16 @@ next typing
 
        python2 pirmansx2.py
 
-enjoy. if you using tools version 1 its indonesia language
+enjoy. info = you using tools version 1 its indonesia language
 see ls before cd budiman
 
 
 see command? are you have problem? send me messages
+
+
 on ID GROUP you taking number from chrome, like this. remember number!!
 this for example
+
 
 <img src="https://github.com/und3f1n3/budiman/blob/master/lod.png">
 
