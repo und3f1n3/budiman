@@ -41,8 +41,8 @@ see command? are you have problem? send me messages
 on ID GROUP you taking number from chrome, like this. remember number!!
 this for example
 
-<img src="/und3f1n3/budiman/blob/master/lod.png?" alt="lod.png">
+<img src="https://github.com/und3f1n3/budiman/blob/master/lod.png">
 
 and then insert to tools like this
 
-<img src="/und3f1n3/budiman/blob/master/lod.png?" alt="lod.png">
+<img src="https://github.com/und3f1n3/budiman/blob/master/lod2.png">
