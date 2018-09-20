@@ -2,6 +2,8 @@
 hack facebook multi bruteforce random milik PIRMANSX,... di back up kembali, gunakan dengan bijak
 
 <img src="https://github.com/und3f1n3/facebooklkbot/blob/master/new.png?">
+<img src="https://github.com/und3f1n3/facebooklkbot/blob/master/new%202.png">
+
 
  # english info installation
  
