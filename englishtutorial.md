@@ -1,7 +1,7 @@
 # budiman
 hack facebook multi bruteforce random milik PIRMANSX,... di back up kembali, gunakan dengan bijak
 
-<img src="/und3f1n3/facebooklkbot/blob/master/new.png?">
+<img src="https://github.com/und3f1n3/facebooklkbot/blob/master/new.png?">
 
  # english info installation
  
@@ -25,7 +25,7 @@ and enter ,.. next typing
 
 next typing
 
-        git clone http://github.com/und3f1n3/budiman
+        git clone https://github.com/und3f1n3/budiman
 
 next typing
 
